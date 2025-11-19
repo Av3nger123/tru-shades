@@ -1,0 +1,1732 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TruShades — Interior Design Studio</title>
+  <meta name="description" content="Tru Shades - Beautiful residential and commercial interiors. Book a consultation today." />
+  
+  <!-- Favicon / Site Logo -->
+  <link rel="icon" type="image/jpeg" href="Trushades Logo (1).jpg" />
+  <link rel="apple-touch-icon" href="Trushades Logo (1).jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="Trushades Logo (1).jpg" />
+
+  <!-- Google Fonts - Luxurious Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Luxurious Typography */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #1a1a1a;
+    }
+    
+    /* Ensure all text is visible by default */
+    p, span, div, li, td, th, label, input, textarea, select {
+      color: inherit;
+    }
+    
+    /* Ensure headings have dark color and proper font */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      color: #1a1a1a;
+    }
+    
+    /* Override for specific text color classes */
+    .text-white {
+      color: #ffffff !important;
+    }
+    
+    .text-black {
+      color: #000000 !important;
+    }
+    
+    /* Ensure text in cards is visible */
+    article, .card, .bg-white {
+      color: #1a1a1a;
+    }
+    
+    article p, .card p, .bg-white p {
+      color: #4a4a4a;
+    }
+    .luxury-heading {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    
+    /* minor custom styles */
+    .hero-bg { background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
+    .card-tilt { transform: translateZ(0); }
+    
+    /* Colorful gradients */
+    .gradient-purple { background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); }
+    .gradient-gold { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .gradient-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .gradient-emerald { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+    .gradient-orange { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+    .gradient-luxury { background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%); }
+    
+    /* Scroll Animation Styles - These elements are meant to animate */
+    .scroll-fade-in,
+    .scroll-slide-up {
+      opacity: 0;
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    .scroll-fade-in {
+      transform: translateY(20px);
+    }
+    
+    .scroll-slide-up {
+      transform: translateY(40px);
+    }
+    
+    .scroll-fade-in.animate,
+    .scroll-slide-up.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Section headings animation - Visible by default, animate on scroll */
+    section h2 {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      color: #1a1a1a;
+    }
+    
+    /* Only apply animation if JavaScript adds the class */
+    section h2.scroll-animate {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    section h2.scroll-animate.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    section p {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+      color: #4a4a4a;
+    }
+    
+    /* Only apply animation if JavaScript adds the class */
+    section p.scroll-animate {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    
+    section p.scroll-animate.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Process section content should be visible by default */
+    #process h2,
+    #process h3,
+    #process p,
+    .process-card h3,
+    .process-card p,
+    .process-panel h3,
+    .process-panel p {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+    
+    /* Hide scrollbar but keep scrolling */
+    html {
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    html::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      overflow-x: hidden;
+    }
+    
+    section {
+      position: relative;
+      width: 100%;
+    }
+    
+    /* Textured Backgrounds */
+    body {
+      background: #faf9f7;
+      position: relative;
+    }
+    
+    /* Crushed Paper Texture with AutoCAD-like Design */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: 
+        /* Crushed paper texture - noise pattern */
+        url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"),
+        /* AutoCAD grid lines - major grid (every 50px) */
+        repeating-linear-gradient(0deg, transparent, transparent 49px, rgba(0, 0, 0, 0.03) 49px, rgba(0, 0, 0, 0.03) 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, rgba(0, 0, 0, 0.03) 49px, rgba(0, 0, 0, 0.03) 50px),
+        /* Minor grid lines (every 10px) */
+        repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(0, 0, 0, 0.01) 9px, rgba(0, 0, 0, 0.01) 10px),
+        repeating-linear-gradient(90deg, transparent, transparent 9px, rgba(0, 0, 0, 0.01) 9px, rgba(0, 0, 0, 0.01) 10px),
+        /* Diagonal crease lines (crushed paper effect) */
+        repeating-linear-gradient(45deg, transparent, transparent 98px, rgba(0, 0, 0, 0.01) 98px, rgba(0, 0, 0, 0.01) 100px),
+        repeating-linear-gradient(-45deg, transparent, transparent 98px, rgba(0, 0, 0, 0.01) 98px, rgba(0, 0, 0, 0.01) 100px),
+        /* Base color */
+        #faf9f7;
+      background-size: 
+        100px 100px,
+        50px 50px,
+        50px 50px,
+        10px 10px,
+        10px 10px,
+        200px 200px,
+        200px 200px,
+        100% 100%;
+      background-position: 
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0,
+        0 0;
+      opacity: 1;
+    }
+    
+    /* AutoCAD-like technical drawing overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: 
+        /* Dimension lines and measurement marks */
+        url("data:image/svg+xml,%3Csvg width='500' height='500' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.025' stroke='%23000' fill='none'%3E%3Cline x1='0' y1='0' x2='15' y2='0' stroke-width='0.8'/%3E%3Cline x1='0' y1='0' x2='0' y2='15' stroke-width='0.8'/%3E%3Cline x1='250' y1='0' x2='250' y2='8' stroke-width='0.5'/%3E%3Cline x1='0' y1='250' x2='8' y2='250' stroke-width='0.5'/%3E%3Cline x1='500' y1='0' x2='485' y2='0' stroke-width='0.8'/%3E%3Cline x1='500' y1='0' x2='500' y2='15' stroke-width='0.8'/%3E%3Cline x1='0' y1='500' x2='0' y2='485' stroke-width='0.8'/%3E%3Cline x1='0' y1='500' x2='15' y2='500' stroke-width='0.8'/%3E%3Cline x1='500' y1='500' x2='485' y2='500' stroke-width='0.8'/%3E%3Cline x1='500' y1='500' x2='500' y2='485' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E"),
+        /* Technical drawing corner marks and annotations */
+        url("data:image/svg+xml,%3Csvg width='800' height='800' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.02' stroke='%23000' fill='none'%3E%3Cpath d='M 0 0 L 20 0 L 0 20 Z' stroke-width='0.8'/%3E%3Cpath d='M 800 0 L 780 0 L 800 20 Z' stroke-width='0.8'/%3E%3Cpath d='M 0 800 L 0 780 L 20 800 Z' stroke-width='0.8'/%3E%3Cpath d='M 800 800 L 780 800 L 800 780 Z' stroke-width='0.8'/%3E%3Cline x1='100' y1='0' x2='100' y2='400' stroke-width='0.3' stroke-dasharray='2,2'/%3E%3Cline x1='0' y1='100' x2='400' y2='100' stroke-width='0.3' stroke-dasharray='2,2'/%3E%3Cline x1='700' y1='0' x2='700' y2='400' stroke-width='0.3' stroke-dasharray='2,2'/%3E%3Cline x1='0' y1='700' x2='400' y2='700' stroke-width='0.3' stroke-dasharray='2,2'/%3E%3C/g%3E%3C/svg%3E"),
+        /* Dimension arrows and technical symbols */
+        url("data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.018' stroke='%23000' fill='none'%3E%3Cpath d='M 0 0 L 8 4 L 0 8 Z' stroke-width='0.5'/%3E%3Cpath d='M 0 0 L 4 8 L 8 0 Z' stroke-width='0.5'/%3E%3Ccircle cx='150' cy='150' r='3' stroke-width='0.5'/%3E%3Cline x1='0' y1='150' x2='300' y2='150' stroke-width='0.3' stroke-dasharray='1,3'/%3E%3Cline x1='150' y1='0' x2='150' y2='300' stroke-width='0.3' stroke-dasharray='1,3'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 500px 500px, 800px 800px, 300px 300px;
+      background-position: 0 0, 100px 100px, 50px 50px;
+      background-repeat: repeat;
+    }
+    
+    /* Ensure content is above background */
+    body > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Linen/Fabric Texture */
+    .texture-linen {
+      background-color: #ffffff;
+      background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+      background-size: 20px 20px;
+      position: relative;
+    }
+    
+    .texture-linen::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    /* Marble Texture */
+    .texture-marble {
+      background: 
+        linear-gradient(135deg, #f8f7f5 0%, #ffffff 50%, #f5f4f2 100%),
+        repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(0, 0, 0, 0.01) 35px, rgba(0, 0, 0, 0.01) 70px);
+      background-size: 100% 100%, 200px 200px;
+      position: relative;
+    }
+    
+    .texture-marble::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(ellipse at top left, rgba(0, 0, 0, 0.03) 0%, transparent 40%),
+        radial-gradient(ellipse at bottom right, rgba(0, 0, 0, 0.03) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    
+    /* Paper Texture */
+    .texture-paper {
+      background-color: #faf9f7;
+      background-image: 
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      position: relative;
+    }
+    
+    /* Subtle Geometric Pattern */
+    .texture-geometric {
+      background-color: #ffffff;
+      background-image: 
+        linear-gradient(30deg, rgba(0, 0, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.02) 87.5%, rgba(0, 0, 0, 0.02)),
+        linear-gradient(150deg, rgba(0, 0, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.02) 87.5%, rgba(0, 0, 0, 0.02)),
+        linear-gradient(30deg, rgba(0, 0, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.02) 87.5%, rgba(0, 0, 0, 0.02)),
+        linear-gradient(150deg, rgba(0, 0, 0, 0.02) 12%, transparent 12.5%, transparent 87%, rgba(0, 0, 0, 0.02) 87.5%, rgba(0, 0, 0, 0.02));
+      background-size: 80px 140px;
+      background-position: 0 0, 0 0, 40px 70px, 40px 70px;
+    }
+    
+    /* Velvet/Soft Texture */
+    .texture-velvet {
+      background: linear-gradient(135deg, #f8f7f5 0%, #ffffff 100%);
+      background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.015) 10px, rgba(0, 0, 0, 0.015) 20px),
+        repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.015) 10px, rgba(0, 0, 0, 0.015) 20px);
+      position: relative;
+    }
+    
+    .texture-velvet::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 30% 30%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(0, 0, 0, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    /* Ensure content is above texture overlays */
+    .texture-linen > *,
+    .texture-marble > *,
+    .texture-paper > *,
+    .texture-geometric > *,
+    .texture-velvet > * {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Modern Micro Interactive Animations - Consistent & Polished */
+    
+    /* Smooth Easing Functions */
+    :root {
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    
+    /* Button Ripple Effect - Modern */
+    .btn-ripple {
+      position: relative;
+      overflow: hidden;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    
+    .btn-ripple::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: translate(-50%, -50%);
+      transition: width 0.4s var(--ease-out-expo), height 0.4s var(--ease-out-expo), opacity 0.4s;
+      opacity: 0;
+    }
+    
+    .btn-ripple:active::after {
+      width: 300px;
+      height: 300px;
+      opacity: 1;
+    }
+    
+    /* Card Hover - Smooth Lift */
+    .card-hover {
+      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+      cursor: pointer;
+      will-change: transform;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* Image Zoom - Smooth */
+    .img-zoom {
+      transition: transform 0.6s var(--ease-out-expo);
+      overflow: hidden;
+      will-change: transform;
+    }
+    
+    .img-zoom img {
+      transition: transform 0.6s var(--ease-out-expo);
+      will-change: transform;
+    }
+    
+    .img-zoom:hover img {
+      transform: scale(1.08);
+    }
+    
+    /* Input Focus - Modern */
+    .input-focus {
+      transition: all 0.3s var(--ease-in-out-quart);
+      border: 2px solid #e5e7eb;
+      will-change: border-color, box-shadow, transform;
+    }
+    
+    .input-focus:focus {
+      outline: none;
+      border-color: #000000;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.08);
+      transform: translateY(-1px);
+    }
+    
+    /* Link Underline - Smooth */
+    .link-underline {
+      position: relative;
+      transition: color 0.3s var(--ease-in-out-quart);
+    }
+    
+    .link-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #000000;
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    
+    .link-underline:hover::after {
+      width: 100%;
+    }
+    
+    /* Logo Pulse - Subtle */
+    .logo-pulse {
+      animation: pulse-subtle 3s var(--ease-in-out-quart) infinite;
+    }
+    
+    @keyframes pulse-subtle {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.95;
+        transform: scale(1.02);
+      }
+    }
+    
+    /* Button Glow - Modern */
+    .btn-glow {
+      position: relative;
+      transition: all 0.4s var(--ease-out-expo);
+      will-change: transform, box-shadow;
+    }
+    
+    .btn-glow:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px) scale(1.02);
+    }
+    
+    .btn-glow:active {
+      transform: translateY(0) scale(0.98);
+      transition: all 0.15s var(--ease-in-out-quart);
+    }
+    
+    /* Icon Rotation - Smooth */
+    .icon-rotate {
+      transition: transform 0.5s var(--ease-out-back);
+      will-change: transform;
+    }
+    
+    .icon-rotate:hover {
+      transform: rotate(180deg) scale(1.1);
+    }
+    
+    /* Shimmer Effect - Refined */
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shimmer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.6s var(--ease-out-expo);
+      z-index: 1;
+    }
+    
+    .shimmer:hover::before {
+      left: 100%;
+    }
+    
+    /* Text Gradient - Smooth */
+    .text-gradient {
+      background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      transition: all 0.4s var(--ease-in-out-quart);
+    }
+    
+    .text-gradient:hover {
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Bounce Animation - Refined */
+    @keyframes bounce-refined {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-4px) scale(1.02);
+      }
+    }
+    
+    .bounce-on-hover:hover {
+      animation: bounce-refined 0.5s var(--ease-out-back);
+    }
+    
+    /* Scale Animation - Smooth */
+    .scale-on-hover {
+      transition: transform 0.4s var(--ease-out-expo);
+      will-change: transform;
+    }
+    
+    .scale-on-hover:hover {
+      transform: scale(1.05);
+    }
+    
+    .scale-on-hover:active {
+      transform: scale(0.97);
+      transition: transform 0.15s var(--ease-in-out-quart);
+    }
+    
+    /* Magnetic Effect - Modern */
+    .magnetic {
+      transition: all 0.4s var(--ease-out-expo);
+      will-change: transform;
+    }
+    
+    /* Form Select Animation */
+    select.input-focus {
+      cursor: pointer;
+      transition: all 0.3s var(--ease-in-out-quart);
+    }
+    
+    select.input-focus:hover {
+      border-color: #000000;
+      transform: translateY(-1px);
+    }
+    
+    /* Textarea Focus */
+    textarea.input-focus {
+      resize: vertical;
+      min-height: 100px;
+    }
+    
+    /* Header Logo Hover */
+    header a:hover .logo-pulse {
+      animation: pulse-subtle 1s var(--ease-in-out-quart) infinite;
+    }
+    
+    /* Logo Image Styling */
+    .logo-header {
+      width: 200px;
+      height: auto;
+      max-height: 60px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    
+    .logo-footer {
+      width: 160px;
+      height: auto;
+      max-height: 50px;
+      object-fit: contain;
+      filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    
+    header a:hover .logo-header {
+      transform: scale(1.05);
+    }
+    
+    /* Footer Instagram Icon */
+    footer a svg {
+      fill: currentColor;
+    }
+    
+    /* Ensure all SVG icons have white fill by default */
+    svg {
+      fill: white;
+    }
+    
+    /* Process card and feature icons - white fill */
+    .process-card-icon svg,
+    .process-feature-icon svg {
+      fill: white !important;
+    }
+    
+    /* Process tab icons should use currentColor to match text */
+    .process-tab-icon svg {
+      fill: currentColor !important;
+    }
+    
+    /* Floating Header with Glassmorphic Effect */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
+      will-change: background, backdrop-filter, box-shadow;
+    }
+    
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.12);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Mobile menu should also be floating */
+    #mobileMenu {
+      position: fixed;
+      top: 73px;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Ensure header stays above all sections */
+    header,
+    header * {
+      position: relative;
+      z-index: inherit;
+    }
+    
+    /* Process Card Container - Glassmorphic */
+    .process-card-container {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(30px) saturate(180%);
+      -webkit-backdrop-filter: blur(30px) saturate(180%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .process-card-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+    }
+    
+    /* Tabbed Glassmorphic Process Section - Tab Bar Style */
+    .process-tabs-bottom {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+    }
+    
+    .process-tab {
+      padding: 1.25rem 2rem;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.4s var(--ease-in-out-quart);
+      position: relative;
+      font-weight: 500;
+      color: #666;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      will-change: background, color;
+    }
+    
+    .process-tab::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      transform: scaleX(0);
+      transition: transform 0.4s var(--ease-out-expo);
+      will-change: transform;
+    }
+    
+    .process-tab:hover {
+      background: rgba(255, 255, 255, 0.25);
+      color: #333;
+      transform: translateY(-1px);
+    }
+    
+    .process-tab.active {
+      background: rgba(255, 255, 255, 0.35);
+      color: #000;
+      font-weight: 600;
+    }
+    
+    .process-tab.active::after {
+      transform: scaleX(1);
+    }
+    
+    .process-tab-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    
+    .process-tab-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      transition: transform 0.4s var(--ease-out-back);
+      will-change: transform;
+    }
+    
+    .process-tab:hover .process-tab-icon svg,
+    .process-tab.active .process-tab-icon svg {
+      transform: scale(1.12) rotate(5deg);
+    }
+    
+    .process-content {
+      position: relative;
+      flex: 1;
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .process-panel {
+      display: none;
+      animation: fadeInUp 0.5s var(--ease-out-expo);
+      will-change: opacity, transform;
+    }
+    
+    .process-panel.active {
+      display: block;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .process-card {
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      border: none;
+    }
+    
+    .process-card::before {
+      display: none;
+    }
+    
+    .process-card h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      color: #000;
+      font-weight: 700;
+    }
+    
+    .process-card > p {
+      margin-bottom: 1rem;
+      color: #1a1a1a;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    
+    .process-card > p:last-of-type {
+      margin-bottom: 0;
+    }
+    
+    .process-card-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s var(--ease-out-expo);
+      will-change: transform, box-shadow;
+    }
+    
+    .process-card-icon svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+      transition: transform 0.5s var(--ease-out-back);
+      will-change: transform;
+    }
+    
+    .process-card:hover .process-card-icon {
+      transform: scale(1.08) rotate(-3deg);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    
+    .process-card:hover .process-card-icon svg {
+      transform: scale(1.12) rotate(3deg);
+    }
+    
+    .process-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .process-feature {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      transition: all 0.4s var(--ease-out-expo);
+      will-change: transform, background, box-shadow;
+      cursor: pointer;
+    }
+    
+    .process-feature:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    .process-feature-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.4s var(--ease-out-back);
+      will-change: transform;
+    }
+    
+    .process-feature-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: white;
+      transition: transform 0.4s var(--ease-out-back);
+      will-change: transform;
+    }
+    
+    .process-feature:hover .process-feature-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+    
+    .process-feature:hover .process-feature-icon svg {
+      transform: scale(1.15);
+    }
+    
+    @media (max-width: 768px) {
+      .process-tabs-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+        padding: 1.5rem;
+      }
+      
+      .process-tab {
+        max-width: 100%;
+        text-align: center;
+      }
+      
+      .process-content {
+        padding: 2rem 1.5rem;
+        min-height: 400px;
+      }
+      
+      .process-features {
+        grid-template-columns: 1fr;
+      }
+      
+      .process-card-container {
+        border-radius: 16px;
+      }
+      
+      .process-tabs-bottom {
+        border-radius: 0 0 16px 16px;
+      }
+    }
+    
+    /* Process Stepper */
+    .process-stepper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      position: relative;
+      padding: 0 2rem;
+    }
+    
+    .process-stepper::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.1) 100%);
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    
+    .stepper-step {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .stepper-step:not(:last-child) {
+      margin-right: 1rem;
+    }
+    
+    .stepper-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .stepper-step.active .stepper-circle {
+      background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      border-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      transform: scale(1.1);
+    }
+    
+    .stepper-step.completed .stepper-circle {
+      background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .stepper-step:hover .stepper-circle {
+      transform: scale(1.15);
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    }
+    
+    .stepper-circle svg {
+      width: 28px;
+      height: 28px;
+      fill: #666;
+      transition: all 0.3s ease;
+    }
+    
+    .stepper-step.active .stepper-circle svg,
+    .stepper-step.completed .stepper-circle svg {
+      fill: white;
+    }
+    
+    .stepper-label {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #666;
+      text-align: center;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    
+    .stepper-step.active .stepper-label {
+      color: #000;
+      font-weight: 600;
+    }
+    
+    .stepper-step.completed .stepper-label {
+      color: #333;
+    }
+    
+    .stepper-connector {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.2) 100%);
+      transform: translateY(-50%);
+      z-index: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .stepper-step.active ~ .stepper-step .stepper-connector,
+    .stepper-step.completed ~ .stepper-step .stepper-connector {
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+    
+    @media (max-width: 768px) {
+      .process-stepper {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0;
+      }
+      
+      .process-stepper::before {
+        display: none;
+      }
+      
+      .stepper-step {
+        width: 100%;
+      }
+      
+      .stepper-connector {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased text-gray-800">
+  <!-- Header -->
+  <header id="mainHeader">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 scale-on-hover">
+        <img src="Trushades_Logo_without BG.png" alt="Tru Shades Logo" class="logo-header logo-pulse" />
+      </a>
+      <nav class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#services" class="link-underline hover:text-black transition-colors">Services</a>
+        <a href="#portfolio" class="link-underline hover:text-black transition-colors">Portfolio</a>
+        <a href="#about" class="link-underline hover:text-black transition-colors">About</a>
+        <a href="#contact" class="text-white gradient-purple px-4 py-2 rounded-md shadow-lg btn-ripple btn-glow bounce-on-hover">Book a Consultation</a>
+      </nav>
+      <button class="md:hidden text-gray-700 hover:text-black icon-rotate scale-on-hover" id="menuBtn">☰</button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden bg-white border-b">
+    <div class="px-6 py-4 flex flex-col gap-3">
+      <a href="#services" class="link-underline hover:text-black transition-colors">Services</a>
+      <a href="#portfolio" class="link-underline hover:text-black transition-colors">Portfolio</a>
+      <a href="#about" class="link-underline hover:text-black transition-colors">About</a>
+      <a href="#contact" class="text-white gradient-purple px-4 py-2 rounded-md shadow-lg btn-ripple btn-glow">Book</a>
+    </div>
+  </div>
+
+
+  <!-- Hero -->
+  <section id="hero" class="hero-bg text-white">
+    <div class="max-w-7xl mx-auto px-6 py-32">
+      <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 md:p-12 max-w-4xl">
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6 text-white">Spaces that feel like you.</h1>
+        <p class="text-lg md:text-xl text-white mb-4">We create lasting interiors — residential & commercial — through thoughtful design and end-to-end execution.</p>
+        <p class="text-base text-white mb-8">Transform your space into a reflection of your personality, lifestyle, and aspirations. Our expert team combines creativity with functionality to deliver designs that stand the test of time.</p>
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <a href="#contact" class="gradient-purple px-6 py-4 rounded-md font-semibold shadow-lg btn-ripple btn-glow bounce-on-hover text-center text-white">Request a Quote</a>
+          <a href="#portfolio" class="bg-white/20 backdrop-blur-sm px-6 py-4 rounded-md hover:bg-white/30 border border-white/30 scale-on-hover text-center text-white">View Portfolio</a>
+        </div>
+        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/20">
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">200+</div>
+            <div class="text-sm text-white">Projects</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">10+</div>
+            <div class="text-sm text-white">Years</div>
+          </div>
+          <div class="text-center">
+            <div class="text-2xl font-bold text-white">98%</div>
+            <div class="text-sm text-white">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="max-w-7xl mx-auto px-6 py-20 texture-linen">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">From concept to execution — tailored services to fit your lifestyle and budget. We offer comprehensive interior design solutions for every space.</p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="p-8 rounded-xl shadow-sm bg-white scroll-fade-in card-hover shimmer">
+        <div class="h-48 rounded-lg overflow-hidden mb-6 img-zoom">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Residential Interiors" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="font-semibold text-gradient text-xl mb-3">Residential Interiors</h3>
+        <p class="mb-4 text-gray-600">Homes, apartments, and bespoke living spaces — focusing on comfort and timeless design that reflects your personal style.</p>
+        <ul class="text-sm text-gray-500 space-y-2">
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Complete home renovation & redesign</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Room-by-room makeovers</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Furniture & decor selection</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Space planning & optimization</span>
+          </li>
+        </ul>
+      </article>
+      <article class="p-8 rounded-xl shadow-sm bg-white scroll-fade-in card-hover shimmer" style="animation-delay: 0.1s;">
+        <div class="h-48 rounded-lg overflow-hidden mb-6 img-zoom">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Commercial Interiors" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="font-semibold text-gradient text-xl mb-3">Commercial Interiors</h3>
+        <p class="mb-4 text-gray-600">Offices, retail, and hospitality spaces that reflect your brand and improve user experience while maximizing functionality.</p>
+        <ul class="text-sm text-gray-500 space-y-2">
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Office & workspace design</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Retail & showroom interiors</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Restaurant & hospitality design</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Brand-aligned space planning</span>
+          </li>
+        </ul>
+      </article>
+      <article class="p-8 rounded-xl shadow-sm bg-white scroll-fade-in card-hover shimmer" style="animation-delay: 0.2s;">
+        <div class="h-48 rounded-lg overflow-hidden mb-6 img-zoom">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Turnkey Projects" class="w-full h-full object-cover" />
+        </div>
+        <h3 class="font-semibold text-gradient text-xl mb-3">Turnkey Projects</h3>
+        <p class="mb-4 text-gray-600">End-to-end delivery: design, procurement, and execution with single-point accountability for seamless project completion.</p>
+        <ul class="text-sm text-gray-500 space-y-2">
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Complete project management</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Material sourcing & procurement</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Contractor coordination</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-black mr-2">✓</span>
+            <span>Quality assurance & handover</span>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio" class="bg-gray-50 py-20 texture-paper">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Portfolio</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">A curated selection of our recent projects showcasing our expertise in creating beautiful, functional spaces across residential and commercial sectors.</p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="rounded-lg overflow-hidden shadow-sm bg-white scroll-slide-up card-hover shimmer">
+          <div class="img-zoom">
+            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1200&q=80" alt="Modern Family Home" class="w-full h-56 object-cover" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-semibold text-gradient text-lg mb-2">Modern Family Home</h4>
+            <p class="text-sm text-gray-600 mb-3">Warm neutrals and layered textures create a welcoming atmosphere for family living.</p>
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span>📍 Downtown District</span>
+              <span>🏠 3,200 sq ft</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-100">
+              <p class="text-xs text-gray-500">Complete renovation including kitchen, living areas, and master suite with custom built-ins and premium finishes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-sm bg-white scroll-slide-up card-hover shimmer" style="animation-delay: 0.15s;">
+          <div class="img-zoom">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Minimal Office Space" class="w-full h-56 object-cover" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-semibold text-gradient text-lg mb-2">Minimal Office Space</h4>
+            <p class="text-sm text-gray-600 mb-3">Clean lines and functional layouts maximize productivity and employee well-being.</p>
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span>📍 Business District</span>
+              <span>🏢 5,000 sq ft</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-100">
+              <p class="text-xs text-gray-500">Open-plan workspace with private offices, meeting rooms, and collaborative areas featuring ergonomic furniture and smart lighting.</p>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg overflow-hidden shadow-sm bg-white scroll-slide-up card-hover shimmer" style="animation-delay: 0.3s;">
+          <div class="img-zoom">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80" alt="Boutique Cafe" class="w-full h-56 object-cover" />
+          </div>
+          <div class="p-6">
+            <h4 class="font-semibold text-gradient text-lg mb-2">Boutique Cafe</h4>
+            <p class="text-sm text-gray-600 mb-3">Cozy, textured, and inviting atmosphere that encourages customers to linger.</p>
+            <div class="flex items-center justify-between text-xs text-gray-500">
+              <span>📍 Arts Quarter</span>
+              <span>☕ 1,800 sq ft</span>
+            </div>
+            <div class="mt-3 pt-3 border-t border-gray-100">
+              <p class="text-xs text-gray-500">Complete interior transformation with custom seating, ambient lighting, and a warm color palette that reflects the brand's artisanal identity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="bg-gray-50 py-20 texture-paper">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Our Process</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">From initial consultation to final handover, we guide you through every step with transparency, expertise, and attention to detail.</p>
+      </div>
+      
+      <!-- Process Card Container -->
+      <div class="process-card-container">
+        <!-- Tab Content -->
+        <div class="process-content">
+        <!-- Discovery Panel -->
+        <div class="process-panel active" id="discovery">
+          <div class="process-card">
+            <div class="process-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="white"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-center">Discovery</h3>
+            <p class="text-center">We start by understanding your vision, lifestyle, and requirements through detailed consultations and comprehensive site visits. This foundational phase ensures we capture every detail of your dream space.</p>
+            <p class="text-center">During this initial phase, our team conducts in-depth interviews to understand not just what you want, but why you want it. We explore your daily routines, preferences, and aspirations to create a design that truly reflects your personality and enhances your quality of life.</p>
+            <p class="text-center">We schedule comprehensive consultations where we discuss your goals, preferences, and vision for the space. This includes understanding your family dynamics, work habits, and how you want to use each room. We provide detailed cost breakdowns and help you prioritize elements that matter most, ensuring transparent budget discussions and timeline planning.</p>
+          </div>
+        </div>
+        
+        <!-- Design Panel -->
+        <div class="process-panel" id="design">
+          <div class="process-card">
+            <div class="process-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="white"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-center">Design</h3>
+            <p class="text-center">Our team creates comprehensive design concepts with 3D visualizations, material selections, and detailed plans. Experience your space before it's built.</p>
+            <p class="text-center">The design phase is where creativity meets functionality. We transform your ideas into detailed plans, complete with photorealistic 3D renderings that let you walk through your future space virtually. Our designers work closely with you to refine every detail, from the placement of furniture to the selection of lighting fixtures.</p>
+            <p class="text-center">We develop multiple design concepts that explore different approaches to your space. Each concept includes detailed mood boards with color palettes, material samples, furniture selections, and lighting schemes. We source materials from premium suppliers worldwide, ensuring quality and sustainability. Our advanced 3D visualization technology allows you to experience your space before construction begins.</p>
+          </div>
+        </div>
+        
+        <!-- Execution Panel -->
+        <div class="process-panel" id="execution">
+          <div class="process-card">
+            <div class="process-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="white"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-center">Execution</h3>
+            <p class="text-center">We manage procurement, coordinate with contractors, and ensure quality at every step of the implementation. Your project is in expert hands.</p>
+            <p class="text-center">During execution, our project managers serve as your single point of contact, handling all coordination between trades, suppliers, and craftsmen. We maintain strict quality standards through regular site inspections and progress reviews.</p>
+            <p class="text-center">We leverage our extensive network of suppliers to source the finest materials at competitive prices. Our project managers coordinate all trades, from electricians to plumbers, ensuring smooth workflow and timely completion. We conduct detailed inspections at every milestone, and you'll receive weekly updates via email with photos, progress summaries, and upcoming milestones.</p>
+          </div>
+        </div>
+        
+        <!-- Handover Panel -->
+        <div class="process-panel" id="handover">
+          <div class="process-card">
+            <div class="process-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+              </svg>
+            </div>
+            <h3 class="font-semibold text-gradient text-2xl mb-4 text-center">Handover</h3>
+            <p class="text-gray-700 mb-4 text-center max-w-2xl mx-auto">Final walkthrough, documentation, and ongoing support to ensure your complete satisfaction with the finished space. Your journey with us continues even after completion.</p>
+            <p class="text-gray-600 mb-4 text-center max-w-2xl mx-auto text-sm">The handover process is designed to give you complete confidence in your new space. We conduct a comprehensive final inspection together, demonstrating all systems and features, and addressing any questions you may have.</p>
+            <p class="text-gray-600 mb-6 text-center max-w-2xl mx-auto text-sm">You'll receive complete documentation including warranties, maintenance guides, and care instructions for all materials and finishes. Our relationship doesn't end at handover—we provide ongoing support and are always available for future design needs or adjustments.</p>
+          </div>
+        </div>
+        </div>
+        
+        <!-- Tab Navigation at Bottom -->
+        <div class="process-tabs-bottom">
+          <button class="process-tab active" data-tab="discovery">
+            <span class="process-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span>Discovery</span>
+          </button>
+          <button class="process-tab" data-tab="design">
+            <span class="process-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span>Design</span>
+          </button>
+          <button class="process-tab" data-tab="execution">
+            <span class="process-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span>Execution</span>
+          </button>
+          <button class="process-tab" data-tab="handover">
+            <span class="process-tab-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+              </svg>
+            </span>
+            <span>Handover</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">What Our Clients Say</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Don't just take our word for it. Here's what our clients have to say about working with Tru Shades.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-8 rounded-xl scroll-fade-in card-hover">
+          <div class="flex items-center mb-5">
+            <div class="w-14 h-14 rounded-full gradient-luxury flex items-center justify-center text-white font-bold mr-4 text-lg">SM</div>
+            <div>
+              <h4 class="font-semibold text-lg">Sarah Mitchell</h4>
+              <p class="text-xs text-gray-500">Residential Client • 2023</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm italic mb-4 leading-relaxed">"Tru Shades transformed our home into a space we truly love. Their attention to detail and creative solutions exceeded our expectations. The team was professional, responsive, and made the entire renovation process stress-free. Highly recommend!"</p>
+          <div class="flex items-center justify-between">
+            <div class="text-yellow-500 text-lg">★★★★★</div>
+            <p class="text-xs text-gray-400">Modern Family Home Project</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl scroll-fade-in card-hover" style="animation-delay: 0.1s;">
+          <div class="flex items-center mb-5">
+            <div class="w-14 h-14 rounded-full gradient-luxury flex items-center justify-center text-white font-bold mr-4 text-lg">JD</div>
+            <div>
+              <h4 class="font-semibold text-lg">James Davis</h4>
+              <p class="text-xs text-gray-500">Commercial Client • 2023</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm italic mb-4 leading-relaxed">"The team at Tru Shades understood our brand perfectly and created an office space that reflects our company culture. Professional, efficient, and stunning results. Our employees love the new workspace, and productivity has increased significantly."</p>
+          <div class="flex items-center justify-between">
+            <div class="text-yellow-500 text-lg">★★★★★</div>
+            <p class="text-xs text-gray-400">Corporate Office Redesign</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 p-8 rounded-xl scroll-fade-in card-hover" style="animation-delay: 0.2s;">
+          <div class="flex items-center mb-5">
+            <div class="w-14 h-14 rounded-full gradient-luxury flex items-center justify-center text-white font-bold mr-4 text-lg">EM</div>
+            <div>
+              <h4 class="font-semibold text-lg">Emily Rodriguez</h4>
+              <p class="text-xs text-gray-500">Residential Client • 2024</p>
+            </div>
+          </div>
+          <p class="text-gray-700 text-sm italic mb-4 leading-relaxed">"From concept to completion, Tru Shades made the entire process seamless. Our new space is beautiful, functional, and exactly what we envisioned. The 3D renderings helped us visualize the final result, and the execution was flawless."</p>
+          <div class="flex items-center justify-between">
+            <div class="text-yellow-500 text-lg">★★★★★</div>
+            <p class="text-xs text-gray-400">Luxury Apartment Renovation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-7xl mx-auto px-6 py-16 texture-marble">
+    <h2 class="text-2xl font-bold">About Tru Shades</h2>
+    <p class="text-gray-600 mt-2">We blend creativity with practical execution to deliver beautiful, functional spaces.</p>
+
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <p class="text-gray-700 mb-4">Our team of designers and project managers work closely with clients from initial concept through to final handover. We prioritize materials, sustainability, and longevity in every project.</p>
+        <p class="text-gray-700 mb-4">With over 10 years of experience in interior design, we've completed hundreds of projects ranging from cozy apartments to large commercial spaces. Our approach combines timeless design principles with contemporary trends.</p>
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-3xl font-bold text-gradient">200+</div>
+            <div class="text-sm text-gray-600 mt-1">Projects Completed</div>
+          </div>
+          <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+            <div class="text-3xl font-bold text-gradient">10+</div>
+            <div class="text-sm text-gray-600 mt-1">Years Experience</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="rounded-lg overflow-hidden shadow-sm scroll-fade-in card-hover">
+          <div class="img-zoom">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Interior Design Team" class="w-full h-64 object-cover" />
+          </div>
+        </div>
+        <div class="mt-6">
+          <h3 class="font-semibold text-gradient mb-3">Our Values</h3>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li class="flex items-start">
+              <span class="text-black mr-2">✓</span>
+              <span>Commitment to quality and craftsmanship</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-black mr-2">✓</span>
+              <span>Sustainable and eco-friendly materials</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-black mr-2">✓</span>
+              <span>Client-centric approach</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-black mr-2">✓</span>
+              <span>Innovation in design solutions</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-white py-20 texture-velvet">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Get in touch</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">Book a consultation or send us details about your project. We're here to help bring your vision to life.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div class="bg-gray-50 p-6 rounded-xl scroll-fade-in card-hover">
+          <div class="w-12 h-12 rounded-full gradient-luxury flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gradient mb-2">Phone</h3>
+          <p class="text-gray-600 text-sm">+1 (555) 123-4567</p>
+          <p class="text-gray-500 text-xs mt-1">Mon-Fri, 9am-6pm EST</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl scroll-fade-in card-hover" style="animation-delay: 0.1s;">
+          <div class="w-12 h-12 rounded-full gradient-luxury flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gradient mb-2">Email</h3>
+          <p class="text-gray-600 text-sm">hello@trushades.com</p>
+          <p class="text-gray-500 text-xs mt-1">We respond within 24 hours</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-xl scroll-fade-in card-hover" style="animation-delay: 0.2s;">
+          <div class="w-12 h-12 rounded-full gradient-luxury flex items-center justify-center text-white mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-semibold text-gradient mb-2">Office</h3>
+          <p class="text-gray-600 text-sm">123 Design Street</p>
+          <p class="text-gray-500 text-xs mt-1">New York, NY 10001</p>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input type="text" placeholder="Full name" class="p-3 border rounded-md input-focus" required />
+          <input type="email" placeholder="Email" class="p-3 border rounded-md input-focus" required />
+          <input type="tel" placeholder="Phone" class="p-3 border rounded-md input-focus" />
+          <input type="text" placeholder="City" class="p-3 border rounded-md input-focus" />
+          <select class="p-3 border rounded-md input-focus">
+          <option>Property Type</option>
+          <option>Residential</option>
+          <option>Commercial</option>
+            <option>Mixed Use</option>
+        </select>
+          <input type="text" placeholder="Budget (approx)" class="p-3 border rounded-md input-focus" />
+          <textarea placeholder="Tell us about your project, timeline, and any specific requirements..." class="p-3 border rounded-md md:col-span-2 input-focus" rows="5" required></textarea>
+          <button type="submit" class="md:col-span-2 gradient-purple text-white px-6 py-4 rounded-md shadow-lg btn-ripple btn-glow bounce-on-hover font-semibold">Send message</button>
+      </form>
+        <p class="text-center text-xs text-gray-500 mt-4">By submitting this form, you agree to our privacy policy. We'll never share your information.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-gray-300 py-8">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <img src="Trushades_Logo_without BG.png" alt="Tru Shades Logo" class="logo-footer" />
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://www.instagram.com/trushades_interio/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-gray-300 hover:text-white transition-colors scale-on-hover">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+          <span class="text-sm">@trushades_interio</span>
+        </a>
+        <div class="text-sm">© TruShades • All rights reserved</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+    
+    // Floating Header Scroll Effect
+    const header = document.getElementById('mainHeader');
+    let headerTicking = false;
+    
+    if (header) {
+      function updateHeader() {
+        const scrollY = window.scrollY;
+        if (scrollY > 30) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      }
+      
+      function onHeaderScroll() {
+        if (!headerTicking) {
+          window.requestAnimationFrame(() => {
+            updateHeader();
+            headerTicking = false;
+          });
+          headerTicking = true;
+        }
+      }
+      
+      window.addEventListener('scroll', onHeaderScroll, { passive: true });
+      updateHeader();
+    }
+    
+    // Scroll Animation Observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          // Optional: Unobserve after animation to improve performance
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    document.addEventListener('DOMContentLoaded', () => {
+      // Observe scroll animation elements
+      document.querySelectorAll('.scroll-fade-in, .scroll-slide-up').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // Observe section headings and paragraphs - add scroll-animate class for animation
+      document.querySelectorAll('section h2, section > p').forEach(el => {
+        // Add scroll-animate class to enable animation
+        el.classList.add('scroll-animate');
+        observer.observe(el);
+      });
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // Process Tab Switching and Stepper
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.process-tab');
+      const panels = document.querySelectorAll('.process-panel');
+      const stepperSteps = document.querySelectorAll('.stepper-step');
+      
+      function switchToStep(stepName) {
+        // Remove active class from all tabs, panels, and stepper steps
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        stepperSteps.forEach(s => {
+          s.classList.remove('active');
+          s.classList.remove('completed');
+        });
+        
+        // Find and activate the target step
+        const targetTab = document.querySelector(`.process-tab[data-tab="${stepName}"]`);
+        const targetPanel = document.getElementById(stepName);
+        const targetStepper = document.querySelector(`.stepper-step[data-step="${stepName}"]`);
+        
+        if (targetTab) targetTab.classList.add('active');
+        if (targetPanel) targetPanel.classList.add('active');
+        if (targetStepper) targetStepper.classList.add('active');
+        
+        // Mark previous steps as completed
+        const stepOrder = ['discovery', 'design', 'execution', 'handover'];
+        const currentIndex = stepOrder.indexOf(stepName);
+        for (let i = 0; i < currentIndex; i++) {
+          const prevStepper = document.querySelector(`.stepper-step[data-step="${stepOrder[i]}"]`);
+          if (prevStepper) prevStepper.classList.add('completed');
+        }
+      }
+      
+      // Tab click handlers
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetTab = tab.getAttribute('data-tab');
+          switchToStep(targetTab);
+        });
+      });
+      
+      // Stepper click handlers
+      stepperSteps.forEach(step => {
+        step.addEventListener('click', () => {
+          const targetStep = step.getAttribute('data-step');
+          switchToStep(targetStep);
+        });
+      });
+      
+      // Initialize with first step
+      switchToStep('discovery');
+    });
+    
+  </script>
+</body>
+</html>
+
