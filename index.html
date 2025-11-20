@@ -62,12 +62,13 @@
     .card-tilt { transform: translateZ(0); }
     
     /* Colorful gradients */
-    .gradient-purple { background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); }
-    .gradient-gold { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .gradient-blue { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .gradient-emerald { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .gradient-orange { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-    .gradient-luxury { background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%); }
+    .gradient-purple { background: var(--logo-navy); }
+    .gradient-gold { background: var(--logo-yellow); }
+    .gradient-blue { background: #4facfe; }
+    .gradient-emerald { background: #43e97b; }
+    .gradient-orange { background: var(--logo-red); }
+    .gradient-luxury { background: var(--logo-navy); }
+    .gradient-accent { background: var(--logo-red); }
     
     /* Scroll Animation Styles - These elements are meant to animate */
     .scroll-fade-in,
@@ -341,11 +342,16 @@
     
     /* Modern Micro Interactive Animations - Consistent & Polished */
     
-    /* Smooth Easing Functions */
+    /* Smooth Easing Functions & Logo Colors */
     :root {
       --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
       --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+      
+      /* Logo Colors */
+      --logo-navy: #2B3A42;
+      --logo-red: #F0544F;
+      --logo-yellow: #F4D03F;
     }
     
     /* Button Ripple Effect - Modern */
@@ -431,7 +437,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #000000;
+      background: var(--logo-red);
       transition: width 0.4s var(--ease-out-expo);
     }
     
@@ -506,15 +512,15 @@
     
     /* Text Gradient - Smooth */
     .text-gradient {
-      background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+      background: var(--logo-navy);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       transition: all 0.4s var(--ease-in-out-quart);
     }
-    
+
     .text-gradient:hover {
-      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+      background: var(--logo-navy);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -582,22 +588,18 @@
       width: 200px;
       height: auto;
       max-height: 60px;
+      scale: 1.8;
       object-fit: contain;
       filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-      transition: transform 0.3s var(--ease-out-expo);
     }
-    
+
     .logo-footer {
       width: 160px;
       height: auto;
-      max-height: 50px;
+      max-height: 60px;
+      scale: 1.8;
       object-fit: contain;
       filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.2));
-      transition: transform 0.3s var(--ease-out-expo);
-    }
-    
-    header a:hover .logo-header {
-      transform: scale(1.05);
     }
     
     /* Footer Instagram Icon */
@@ -689,7 +691,7 @@
       left: 0;
       right: 0;
       height: 4px;
-      background: linear-gradient(90deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      background: var(--logo-red);
     }
     
     /* Tabbed Glassmorphic Process Section - Tab Bar Style */
@@ -730,7 +732,7 @@
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      background: var(--logo-red);
       transform: scaleX(0);
       transition: transform 0.4s var(--ease-out-expo);
       will-change: transform;
@@ -837,7 +839,7 @@
       width: 70px;
       height: 70px;
       border-radius: 14px;
-      background: #000000;
+      background: var(--logo-navy);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -895,7 +897,7 @@
       width: 40px;
       height: 40px;
       border-radius: 8px;
-      background: #000000;
+      background: var(--logo-navy);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1005,14 +1007,14 @@
     }
     
     .stepper-step.active .stepper-circle {
-      background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      background: var(--logo-navy);
       border-color: rgba(0, 0, 0, 0.3);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
       transform: scale(1.1);
     }
-    
+
     .stepper-step.completed .stepper-circle {
-      background: linear-gradient(135deg, #2a2a2a 0%, #000000 50%, #1a1a1a 100%);
+      background: var(--logo-navy);
       border-color: rgba(0, 0, 0, 0.3);
     }
     
@@ -1094,7 +1096,7 @@
   <header id="mainHeader">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 scale-on-hover">
-        <img src="Trushades_Logo_without BG.png" alt="Tru Shades Logo" class="logo-header logo-pulse" />
+        <img src="Trushades_Logo_without BG.png" alt="TruShades Logo" class="logo-header" />
       </a>
       <nav class="hidden md:flex gap-6 items-center text-sm">
         <a href="#services" class="link-underline hover:text-black transition-colors">Services</a>
